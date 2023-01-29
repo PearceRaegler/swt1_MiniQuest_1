@@ -75,6 +75,17 @@ public class PlayerController : MonoBehaviour
 
             SetCountText();
         }
+        // Health Recovery System
+
+        // If player collides with health pack
+        if (other.gameObject.CompareTag("Health"))
+        {
+            // Remove the pack from the game world
+            other.gameObject.SetActive(false);
+
+            // Recover 1 health point
+            TakeDamage(-1);
+        }
     }
 
     void TakeDamage(int damage)
